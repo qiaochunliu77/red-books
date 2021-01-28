@@ -1,0 +1,21 @@
+@import 'style/default-theme';
+
+.container{
+    height: .857143rem;
+    display: flex;
+    width: 100%;
+    overflow-x: scroll;
+
+}
+.item{
+    flex-shrink: 0;
+    padding-left: .3rem;
+    padding-right: .3rem;
+    font-size: .342857rem;
+    color: $lightGray;
+    line-height: .857143rem;
+}
+::-webkit-scrollbar {
+    /*隐藏滚轮*/
+    display: none;
+}
