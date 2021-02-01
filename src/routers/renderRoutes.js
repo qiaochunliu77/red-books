@@ -12,7 +12,8 @@ const renderRoutes = (routes, extraProps = {}, switchProps = {}) =>
           exact={route.exact}
           strict={route.strict}
           render={props => {
-            const showTarbar = props.location.pathname ==='/' || props.location.pathname ==='/home'|| props.location.pathname==='/auth';
+            const hasTabArray = ['/','/home','/auth'];
+            const showTarbar = hasTabArray.includes(props.location.pathname); 
             return (
               <>
                 {
