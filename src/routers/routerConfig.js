@@ -1,5 +1,4 @@
 import { Redirect } from 'react-router';
-// import TabBottom from '../components/common/tabBottom';
 import Home  from 'components/home';
 import Auth  from 'components/auth';
 import News from 'components/news';

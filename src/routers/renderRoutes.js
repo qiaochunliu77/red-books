@@ -1,8 +1,9 @@
 import React from "react";
 import { Switch ,Route } from "react-router";
+import BottomView from 'components/common/bottom-view';
 
 const renderRoutes = (routes, extraProps = {}, switchProps = {}) =>
-routes ? (
+ routes ? (
     <Switch {...switchProps}>
         {routes.map((route, i) => ( 
         <Route
@@ -10,9 +11,18 @@ routes ? (
           path={route.path}
           exact={route.exact}
           strict={route.strict}
-          // eslint-disable-next-line consistent-return
-          render={props => 
-            (<route.component {...props} {...extraProps} route={route} />)
+          render={props => {
+            const showTarbar = props.location.pathname ==='/' || props.location.pathname ==='/home'|| props.location.pathname==='/auth';
+            return (
+              <>
+                {
+                  showTarbar && <BottomView />
+                }
+                <route.component {...props} {...extraProps} route={route} />
+              </>
+              );
+          }
+            
             // 当页面需要不登录时，跳转到指定路由
             // if(!route.needLogin) {
             //   return route.render ?(
@@ -26,4 +36,5 @@ routes ? (
       ))}
     </Switch>
   ) : null;
+
  export default renderRoutes;
