@@ -7,3 +7,11 @@
  classnames插件 可添加多个类名
  iconfont symbol方式导入 配合@ant-design/icons, 生成图标
 
+## 1.27 
+ 画主页 50%
+## 1.28
+瀑布流布局 
+[macy](https://github.com/bigbite/macy.js)
+## 2.2 
+redux
+

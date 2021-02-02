@@ -1,7 +1,13 @@
 // 字体颜色
 $jiahao: rgb(251,40,71);
 $lightGray: rgba(150, 150, 150, 1);
-$tabFont: rgba(80, 80, 80, 1);
+$tabFont: rgba(0,0,0,0.6);
+$tabBold: #000;
+
+// 背景颜色
+$white: #fff;
+$gray: rgb(249,249,249);
 
 // 边框颜色
-$borderTop: rgba(229, 229, 229, 1);
+$borderTop: rgba(0, 0, 0, .1);
+$changeTabColor: #ff1616;

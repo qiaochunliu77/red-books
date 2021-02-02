@@ -1,12 +1,15 @@
 import React from 'react';
 import IconFont from 'components/common/svg';
-import { Link } from 'react-router-dom';
+import { withRouter , Link } from 'react-router-dom';
+
 import styles from './style.module.scss';
 
 
-export default function BottomView(props): JSX.Element {
+ function BottomView(props): JSX.Element {
   const navigateToMy = () => {
-    // props.history.push('/news');
+    props.history.push({
+      pathname: '/news',
+    });
   };
   return (
     <div className={styles.container}>
@@ -18,3 +21,4 @@ export default function BottomView(props): JSX.Element {
     </div>
   );
 }
+export default withRouter(BottomView);
