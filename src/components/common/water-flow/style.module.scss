@@ -1,14 +1,72 @@
+@import 'style/default-theme.scss';
 
-.gallry{
+.container{
+  display: flex;
   width: 100%;
-  height: 1000px;
+  flex-direction: column;
+  background-color: $gray;
 }
-.imgBox{
-  width:  50%;
+.wrap{
+  width:100%;
   height: auto;
+  display: flex;
+  
+}
+.left{
+  flex:1;
+  border-radius: .171429rem;
+  background-color: $white;
+  margin: .142857rem;
+}
+.right{
+  flex:1;
 }
 .img{
+  // width: 100%;
+  height: 100%;
+}
+.infoWrap{
+  max-height: 1.714286rem;
+  padding-left: .114286rem;
+  padding-right: .114286rem;
+}
+.title{
+  height: .571429rem;
+  line-height: .571429rem;
+  font-size: .285714rem;
+  font-weight: bold;
+}
+.info{
+  height: .714286rem;
+  line-height:.714286rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.infoLeft{
+  display: flex;
+}
+.infoRight{
+  display: flex;
 
-  // width: 200px;
-  // height: 200px;
+}
+.userWrap{
+
+}
+.icon{
+  margin: auto 0;
+  width: .4rem;
+  height: .4rem;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.iconImg{
+  background-size: 100% 100%;
+  // width: .4rem;
+  // height:100%;
+  // height: .4rem;
+}
+.name{
+  margin-left: .057143rem;
+
 }

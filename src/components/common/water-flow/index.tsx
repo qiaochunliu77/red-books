@@ -1,103 +1,63 @@
 /* eslint-disable jsx-a11y/alt-text */
-import * as React from 'react';
+import React,{ useEffect, useState } from 'react';
 import Macy from 'macy';
+import IconFont from 'components/common/svg';
 import styles from './style.module.scss';
  
-// const masonryOptions = {
-//     transitionDuration: 0,
-// };
- 
-// const imagesLoadedOptions = { background: '.my-bg-image-el' };
- 
-// // class Gallery extends React.Component {
-// //     render() {
-// //         // const childElements = this.props.elements.map((element)=> {
-// //         //    return (
-// //         //         <li className="image-element-class">
-// //         //             <img src={element.src} />
-// //         //         </li>
-// //         //     );
-// //         // });
-// //     console.log(this.props,'---');
-// //         return (
-// //             <Masonry
-// //               className="my-gallery-class" // default ''
-// //               elementType="ul" // default 'div'
-// //               options={masonryOptions} // default {}
-// //               disableImagesLoaded={false} // default false
-// //               updateOnEachImageLoad={false} // default false and works only if disableImagesLoaded is false
-// //             //   imagesLoadedOptions={imagesLoadedOptions} // default {}
-// //             >
-// //                 {/* {childElements} */}
-// //             </Masonry>
-// //         );
-// //     }
-// // }
- 
-// function Gallery(props: any):any {
-//      const childElements = props.elements.map((element,index)=> {
-//            return (
-//                 <div key={index} className={styles.imgBox}>
-//                     <img src={element.src} className={styles.img} />
-//                 </div>
-//             );
-//         });
-//     return (
-//         <Masonry
-//           className={styles.gallry} // default ''
-//           elementType="div" // default 'div'
-//           options={masonryOptions} // default {}
-//           disableImagesLoaded={false} // default false
-//           updateOnEachImageLoad={false} // default false and works only if disableImagesLoaded is false
-//         //   imagesLoadedOptions={imagesLoadedOptions} // default {}
-//         >
-//             {childElements}
-//         </Masonry>
-//     );
-// }
 
 function Gallery(props: any):any {
-    // const Wrap = ():any => {
-    //     props.elements.map((element,index)=> {
-    //         return (
-    //                 <div key={index} className={styles.imgBox}>
-    //                     <img src={element.src} className={styles.img} />
-    //                 </div>
-    //             );
-    //         });
-    // };
-    React.useEffect(() => {
+  const { elements } = props;
+  const [cardInfo, setCardInfo] = useState<any>(elements);
 
-        let macy = Macy({
-            container: '.macy-container',
-            trueOrder: false,
-            waitForImages: false,
-            margin: 24,
-            // columns: 6,
-            // breakAt: {
-            //     1200: 5,
-            //     940: 3,
-            //     520: 2,
-            //     400: 1,
-            // },
-        });
-        
-        macy.reInit();
-    },[]);
-    return (
-        // style={{ columnWidth:'auto',columnCount: 2, columnGap:'10px' }}
-        <div className='.macy-container'>
-            {
-               props.elements.map((element,index)=> {
-                return (
-                        <div key={index} style={{ breakInside: 'avoid' }} className={styles.imgBox}>
-                            <img src={element.src} className={styles.img} />
-                        </div>
-                    );
-                })
-            }
-        </div>
-    );
+  useEffect(() => {
+      setCardInfo(elements);
+      
+  },[elements]);
+  return (
+    <div className={styles.container} style={{ overflow: 'hidden' }}>
+      {
+        cardInfo.map((i,index)=> {
+        return (
+          <div key={index} className={styles.wrap}>
+            <div className={styles.left}>
+              <div className={styles.imgBox}>
+                <img src={i.src} className={styles.img} />
+              </div>
+
+              <div className={styles.infoWrap}>
+                <div className={styles.title}>{i.title}</div>
+
+                <div className={styles.info}>
+
+                  <div className={styles.infoLeft}>
+                    {/* <div className={styles.userWrap}> */}
+                      <div className={styles.icon}>
+                        <img src={i.icon} className={styles.iconImg} alt="" />
+                      </div>
+                    {/* </div> */}
+                    <div className={styles.name}>{i.userName}</div>
+                  </div>
+
+                  <div className={styles.infoRight}>
+                    {
+                      i.hasStar ? (<IconFont type='iconaixin1' style={{ fontSize: '.285714rem', lineHeight:'.75rem'  }}  />) 
+                      : (<IconFont type='iconaixin' />)
+                    }
+                    <div className={styles.star}>{i.star}</div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+            <div className={styles.right}>
+                <img src={i.src} className={styles.img} />
+            </div>
+          </div>
+            );
+        })
+      }
+    </div>
+  );
 }
 
 export default Gallery;
