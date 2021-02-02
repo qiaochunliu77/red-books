@@ -3,20 +3,42 @@
 .container {
   position: relative;
   width: 100%;
+  padding-top: .3rem;
   height: 1.25rem;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   border-bottom: 1px solid $borderTop;
+  .imgWrap{
+    flex:1;
+  }
   .tab{
     display: flex;
-    flex: 3;
-    font-size: .342857rem;
+    flex:3;
+    font-size: .363636rem;
   }
   .tabItem{
+    // width: 1.038961rem;
     flex:1;
+    line-height: 100px;
     text-align: center;
     color: $tabFont;
+  }
+  .navItem{
+    position: relative;
+    color: $tabBold;
+    font-size: .4rem;
+    &:before{
+      content: '';
+      border-radius: 10px;
+      width: .74rem;
+      background-color: $changeTabColor;
+      height :.0523rem;
+      position: absolute;
+      bottom: -0.103896rem;
+      left: 50%;
+      transform: translateX(-50%);
+    }
   }
 }
