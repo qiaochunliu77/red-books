@@ -1,23 +1,21 @@
-import React from 'react';
-import IconFont from 'components/common/svg';
-import { withRouter , Link } from 'react-router-dom';
-
+import React,{ useState } from 'react';
+import { message } from 'antd';
+import { withRouter } from 'react-router-dom';
+import { navigateTo } from 'utils/navigate';
+import jiahao from 'images/home/jiahao.png';
 import styles from './style.module.scss';
 
 
  function BottomView(props): JSX.Element {
-  const navigateToMy = () => {
-    props.history.push({
-      pathname: '/news',
-    });
-  };
+  const [isCheck, setIsCheck] = useState<number>(0);
+
   return (
     <div className={styles.container}>
-      <div className={styles.tab}>首页</div>
-      <div className={styles.center}>
-        <IconFont type='iconjiahao' style={{ textAlign: 'center',marginTop: '.1rem', fontSize:'.8rem', color: 'white'  }} />
+      <div className={isCheck === 0 ? styles.onTab : styles.tab} onClick={() => { navigateTo(props, '/home'); setIsCheck(0);}}>首页</div>
+      <div className={styles.center} onClick={() => {message.info('此页面还在开发中哦，敬请期待～～');}}>
+        <img src={jiahao} alt='' />
       </div>
-      <div className={styles.tab} onClick={navigateToMy}>我</div>
+      <div className={isCheck === 1 ? styles.onTab : styles.tab} onClick={() => {navigateTo(props, '/auth'); setIsCheck(1);}}>我</div>
     </div>
   );
 }
