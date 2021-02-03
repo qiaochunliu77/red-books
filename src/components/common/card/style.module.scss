@@ -3,27 +3,36 @@
 .container{
   display: flex;
   width: 100%;
-  flex-direction: column;
+  flex-wrap: wrap;
+  flex-direction: row;
   background-color: $gray;
 }
 .wrap{
-  width:100%;
+  flex-basis:40%;
   height: auto;
   display: flex;
   
 }
 .left{
-  flex:1;
+  // flex:1;
+  overflow: hidden;
+  flex-basis: 47%;
   border-radius: .171429rem;
   background-color: $white;
   margin: .142857rem;
+}
+.imgBox{
+  width: 100%;
+  height: 4.467532rem
 }
 .right{
   flex:1;
 }
 .img{
-  // width: 100%;
+  width: 100%;
   height: 100%;
+  // height: 4.415584rem;
+  // width: 4.415584rem;
 }
 .infoWrap{
   max-height: 1.714286rem;
@@ -31,10 +40,12 @@
   padding-right: .114286rem;
 }
 .title{
-  height: .571429rem;
-  line-height: .571429rem;
-  font-size: .285714rem;
-  font-weight: bold;
+  height: .8rem;
+  line-height: .8rem;
+  font-size: .33rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .info{
   height: .714286rem;
@@ -44,14 +55,14 @@
   justify-content: space-between;
 }
 .infoLeft{
+  flex: 2;
   display: flex;
 }
 .infoRight{
+  flex:1;
   display: flex;
-
-}
-.userWrap{
-
+  justify-content: flex-end;
+  position: relative;
 }
 .icon{
   margin: auto 0;
@@ -59,14 +70,22 @@
   height: .4rem;
   border-radius: 50%;
   overflow: hidden;
+  position: relative;
 }
 .iconImg{
-  background-size: 100% 100%;
-  // width: .4rem;
-  // height:100%;
-  // height: .4rem;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin :auto;
+  width: .4rem;
+  height: .4rem;
 }
 .name{
   margin-left: .057143rem;
-
+  color: $nameColor;
+}
+.star{
+  color: $nameColor;
 }
