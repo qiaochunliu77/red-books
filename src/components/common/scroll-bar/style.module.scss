@@ -1,11 +1,10 @@
 @import 'style/default-theme';
 
 .container{
-    height: .857143rem;
-    display: flex;
-    width: 100%;
-    overflow-x: scroll;
-
+  height: .9rem;
+  display: flex;
+  width: 100%;
+  overflow-x: scroll;
 }
 .item{
     flex-shrink: 0;

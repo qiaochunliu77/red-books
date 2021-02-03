@@ -1,12 +1,12 @@
 import React from 'react';
 import style from './style.module.scss';
 
-export default function ScrollBar () {
+export default function ScrollBar (props: {tags: Array<string>}) {
 
   return (
     <div className={style.container}>
       {
-        ['推荐', '附近', '视频', '美食', '旅行','推荐', '附近', '视频', '美食', '旅行','推荐', '附近', '视频'].map((item, index) => {
+        props.tags.map((item, index) => {
         return (
           <div key={index} className={style.item}>{item}</div>
         );

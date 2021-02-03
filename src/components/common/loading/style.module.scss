@@ -1,0 +1,17 @@
+@import 'style/default-theme';
+
+.loadWrap{
+  width: 100%;
+  min-height: 2.597403rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  .loadImg{
+    
+  }
+  .tip{
+    line-height: .8rem;
+    color: $lightGray
+  }
+}

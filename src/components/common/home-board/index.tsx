@@ -1,17 +1,15 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import IconFont from 'components/common/svg';
 import { message } from 'antd';
-import { getLocation } from 'utils/map-location';
 import top from 'images/home/top.png';
 import { BorderBottomOutlined } from '@ant-design/icons';
 import styles from './style.module.scss';
 
-export default function HomeBoard () {
-  const [city, setCity] = useState<string>('上海');
+export default function HomeBoard (props: {tags: Array<string>}) {
   const [currentTab, setCurrenttab] = useState<number>(0);
 
   useEffect(() => {
-    setCity(getLocation());
+
   },[]);
   
   const handleTabChange = (index) => {
@@ -31,7 +29,7 @@ export default function HomeBoard () {
       </div>
       <div className={styles.tab}>
         {
-          ['关注', '发现', city].map((item, index) => {
+         props.tags.map((item, index) => {
             return (
               <div key={index} className={styles.tabItem}>
                 <span className={index === currentTab ? styles.navItem:null} onClick={() => handleTabChange(index)}>{item}</span>
