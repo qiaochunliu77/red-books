@@ -2,19 +2,16 @@ import React, { useCallback, useEffect, useState } from 'react';
 import IconFont from 'components/common/svg';
 import { message } from 'antd';
 import top from 'images/home/top.png';
-import { BorderBottomOutlined } from '@ant-design/icons';
 import styles from './style.module.scss';
 
-export default function HomeBoard (props: {tags: Array<string>}) {
-  const [currentTab, setCurrenttab] = useState<number>(0);
+export default function HomeBoard (props: {tags: Array<string>, currentTab: number, handleTab: any }) {
 
-  useEffect(() => {
-
-  },[]);
+ 
   
-  const handleTabChange = (index) => {
-    setCurrenttab(index);
-  };
+  const { tags,currentTab, handleTab } =props;
+  // const toSlideItem = (index) => {
+  //   this.mySwiper1.slideTo(index, 300, false);
+  // }
   const navToCamera = () => {
     message.info('此页面还在开发中哦，敬请期待～～');
     // 
@@ -29,10 +26,10 @@ export default function HomeBoard (props: {tags: Array<string>}) {
       </div>
       <div className={styles.tab}>
         {
-         props.tags.map((item, index) => {
+         tags.map((item, index) => {
             return (
-              <div key={index} className={styles.tabItem}>
-                <span className={index === currentTab ? styles.navItem:null} onClick={() => handleTabChange(index)}>{item}</span>
+              <div key={index} className={styles.tabItem} onClick={() => handleTab(index)}>
+                <span className={index === currentTab ? styles.navItem:null}>{item}</span>
               </div>
             );
           })

@@ -8,6 +8,7 @@ import ScrollView from 'components/common/scroll-view';
 import * as actions from 'store/action';
 import { forceCheck } from 'react-lazyload';
 import { Swiper, SwiperSlide } from 'swiper/react';
+// import Swiper from 'swiper'; 
 import { getLocation } from 'utils/map-location';
 import styles from './style.module.scss';
 import 'swiper/swiper.scss';
@@ -35,31 +36,40 @@ function Home(props: any): any {
   const { userInfo, getUserInfo } = props; // 获取用户信息
   const [loading, setIsLoading ] = useState<boolean>(true); // 设置loading状态
   const [city, setCity] = useState<string>('上海'); // 定位城市，默认上海
-  const [Display, setDisplay] = useState(0);
+  // const [Display, setDisplay] = useState(0);
+  const [currentTab, setCurrenttab] = useState<number>(0); // 点击头部切换索引
+  const [updateSlide, setUpdateSlide] = useState<number>((new Date()).getTime()); // 控制slide是否需要刷新
+  // const [slideChangIndex, setSlideChangeIndex] = useState<number>(0); // 滑动时的索引
 
   headertags.push(city);
   useEffect(() => {
-    // console.log(userInfo,'userInfo');
     setIsLoading(false);
     setCity(getLocation());
-  },[userInfo]);
+  },[userInfo, currentTab]);
 
-  const  handlePullUp = () => {
-    console.log('handlePullUp');
+  // 向子组件传入的回调，父组件拿到数据
+  const handleTab = (index) => {
+    setCurrenttab(index);
+    // 
+    setUpdateSlide((new Date()).getTime());
+    console.log('////',index);
   };
-  const handlePullDown =() => {
-    console.log('handlePullDown');
-  };
-  const uploading = () => {
-    return true;
-    console.log('uploading');
-  };
+  // const  handlePullUp = () => {
+  //   console.log('handlePullUp');
+  // };
+  // const handlePullDown =() => {
+  //   console.log('handlePullDown');
+  // };
+  // const uploading = () => {
+  //   return true;
+  //   console.log('uploading');
+  // };
   return (
    <div className={styles.homeBox}>
-      <HomeBoard tags={headertags} />
+      <HomeBoard tags={headertags} currentTab={currentTab} handleTab={handleTab} />
       <ScrollBar tags={scrollTags} />
-      <div style={{ height: '1000px' }}>
-        <ScrollView direction="vertical"
+      <div>
+        {/* <ScrollView direction="vertical"
           refresh={false}
           onScroll={(e) => {
                       console.log("滚动高度.",e);
@@ -72,27 +82,38 @@ function Home(props: any): any {
           pullUp={handlePullUp}
           pullDown={handlePullDown}
           pullUpLoading={uploading}
-        >
+        > */}
           {
             loading ? <Loading /> : (
               <Swiper
+                initialSlide={currentTab}
                 slidesPerView={1}
-                onSlideChange={() => console.log('slide change')}
-                onSwiper={(swiper) => console.log(swiper)}
+                onSlideChange={(i) => {setCurrenttab(i.activeIndex);}}
+                // 添加key属性控制，当点击tab时手动刷新轮播。
+                key={updateSlide}
               >
-                {
+                {/* {
                   [1,2,3].map((item, index) => {
                     return (
-                      <SwiperSlide key={index}>
+                      <SwiperSlide key={`${item}${index}`} data-hash={index}>
                         <Gallery elements={elements} />
                       </SwiperSlide>
                     );
                   })
-                }
+                } */}
+                <SwiperSlide>
+                  <Gallery elements={elements} />
+                </SwiperSlide>
+                <SwiperSlide>
+                  <div>1223</div>
+                </SwiperSlide>
+                <SwiperSlide>
+                  <div>334</div>
+                </SwiperSlide>
               </Swiper>
             )
           }
-        </ScrollView>
+        {/* </ScrollView> */}
       </div>
 
    </div>
