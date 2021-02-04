@@ -16,3 +16,9 @@
 redux
 ### 2.3 
 [滚动解决](http://www.mescroll.com/api.html)
+主页，
+### 2.4 
+我的页面
+笔记详情页面
+
+

@@ -1,8 +1,8 @@
 @import 'style/default-theme';
 
 .container {
-  position: fixed;
-  top: 0;
+  // position: fixed;
+  // top: 0;
   width: 100%;
   z-index: 999;
   padding-top: .3rem;
@@ -13,6 +13,8 @@
   align-items: center;
   border-bottom: 1px solid $borderTop;
   background-color: white;
+  border-radius: .3rem .3rem 0 0;
+  overflow: hidden;
   .imgWrap{
     flex:1;
   }

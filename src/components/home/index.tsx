@@ -67,7 +67,7 @@ function Home(props: any): any {
   // };
   return (
    <div className={styles.homeBox}>
-      <HomeBoard tags={headertags} currentTab={currentTab} handleTab={handleTab} />
+      <HomeBoard tags={headertags} currentTab={currentTab} handleTab={handleTab} style isHome />
       <ScrollBar tags={scrollTags} />
       <div>
         {/* <ScrollView direction="vertical"

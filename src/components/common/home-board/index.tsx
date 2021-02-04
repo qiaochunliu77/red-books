@@ -4,11 +4,9 @@ import { message } from 'antd';
 import top from 'images/home/top.png';
 import styles from './style.module.scss';
 
-export default function HomeBoard (props: {tags: Array<string>, currentTab: number, handleTab: any }) {
-
- 
+export default function HomeBoard (props: {tags: Array<string>, currentTab: number, handleTab: any,style?:boolean, isHome?: boolean }) {
   
-  const { tags,currentTab, handleTab } =props;
+  const { tags,currentTab, handleTab,style, isHome } =props;
   // const toSlideItem = (index) => {
   //   this.mySwiper1.slideTo(index, 300, false);
   // }
@@ -20,10 +18,14 @@ export default function HomeBoard (props: {tags: Array<string>, currentTab: numb
     message.info('此页面还在开发中哦，敬请期待～～');
   };
   return (
-    <div className={styles.container}>
-      <div className={styles.imgWrap} onClick={navToCamera}>
-        <img src={top} alt='' style={{ marginLeft: '.4rem',width: '.727273rem',height:'.545455rem' }} />
-      </div>
+    <div className={styles.container} style={style && { position:'fixed',top:0 }}>
+      {
+        isHome && (
+          <div className={styles.imgWrap} onClick={navToCamera}>
+            <img src={top} alt='' style={{ marginLeft: '.4rem',width: '.727273rem',height:'.545455rem' }} />
+          </div>
+        )
+      }
       <div className={styles.tab}>
         {
          tags.map((item, index) => {
@@ -35,9 +37,13 @@ export default function HomeBoard (props: {tags: Array<string>, currentTab: numb
           })
         }
       </div>
-      <div style={{ flex:1 }} onClick={navToSerach}>
-        <IconFont type='iconsousuo' style={{ fontSize: '.5rem',marginLeft: '.8rem' }}  />
-      </div>      
+      {
+        isHome && (
+          <div style={{ flex:1 }} onClick={navToSerach}>
+          <IconFont type='iconsousuo' style={{ fontSize: '.5rem',marginLeft: '.8rem' }}  />
+        </div>
+        )
+      } 
     </div>
   );
 }
