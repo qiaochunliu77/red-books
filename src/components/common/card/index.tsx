@@ -1,6 +1,8 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React,{ useEffect, useState } from 'react';
+import { withRouter } from 'react-router-dom';
 import IconFont from 'components/common/svg';
+import { navigateTo } from 'utils/navigate';
 import styles from './style.module.scss';
  
 
@@ -30,7 +32,7 @@ function Card(props: any):any {
         };
   
         return (
-            <div className={styles.left} key={index}>
+            <div className={styles.left} key={index} onClick={() => navigateTo(props,'/article')}>
               <div className={styles.imgBox}>
                 <img src={i.src} className={styles.img} />
               </div>
@@ -65,5 +67,5 @@ function Card(props: any):any {
   );
 }
 
-export default Card;
+export default withRouter(Card);
 

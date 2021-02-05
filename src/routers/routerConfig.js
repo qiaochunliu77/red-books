@@ -2,6 +2,7 @@ import { Redirect } from 'react-router';
 import Home  from 'components/home';
 import Auth  from 'components/auth';
 import News from 'components/news';
+import Article from 'components/article';
 import Layout from './BlankLayout';
 
 const routes =  [
@@ -25,6 +26,16 @@ const routes =  [
           {
             path: '/auth',
             component: Auth,
+          },
+        ],
+      },
+      {
+        path: '/article',
+        component: Article,
+        routes: [
+          {
+            path: 'article/:id',
+            component: Article,
           },
         ],
       },
