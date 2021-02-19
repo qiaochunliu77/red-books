@@ -3,19 +3,135 @@
 .container{
   width: 100%;
   height: 100%;
+  padding-top: 1.55rem;
+  padding-bottom: 2rem;
+  background-color: white;
 }
+
 .header{
-  padding-top: .3rem;
-  height: 1.25rem;
-  background-color: yellowgreen;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: .3rem .3rem .3rem.3rem;
+  height: 1.55rem;
+  background-color: white;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border-bottom: 1px solid #eee;
   .hLeft{
     display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .avatarBox{
+    margin: 0 .2rem;
+    width: .8rem;
+    height: .8rem;
+    overflow: hidden;
+    border-radius: 50%;
+  }
+  .avatar{
+    width: .8rem;
+    height: .8rem;
 
+  }
+  .name{
+    font-size: .363636rem;
+    font-weight: 500;
   }
   .hRight{
     display: flex;
+    justify-content: center;
+    align-items: center;
+    .focus{
+      margin-right: .3rem;
+      width: 1.5rem;
+      // padding: 0 .25rem;
+      height: .7rem;
+      line-height: .7rem;
+      text-align: center;
+      border-radius: 1.298701rem;
+      border :1px solid $jiahao;
+      color: $jiahao;
+      font-weight: 500;
+    }
   }
+}
+.contentwrap{
+  .imgBox{
+    width: 100%;
+    .img{
+      width: 100%;
+    }
+  }
+  .wrap{
+  border-bottom: 1px solid  #eee;
+  margin: 0 .3rem;
+  }
+  .title{
+    font-size: .415584rem;
+    font-weight: 500;
+    line-height: .8rem;
+    // padding: 0 .3rem;
+  }
+  .content{
+    // padding: 0 .3rem;
+    font-size: .363636rem;
+  }
+  .bottom{
+    height: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .time{
+      color: $timeColor;
+    }
+    .unLike{
+      color: $unLikeColor;
+      .unLikeIcon{
+        font-size:'.8rem';
+      }
+      width: 1.7rem;
+      height: .5rem;
+      line-height: .519481rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 1.298701rem;
+      border: 1px solid $timeColor;
+    }
+  }
+}
+
+.commentInput{
+  height: 2rem;
+  width: 100%;
+  border-top: 1px solid $inputLineColor;
+  position: fixed;
+  bottom: 0;
+  background-color: white;
+  padding: .2rem .4rem;
+  .inputBox{
+    height: 1rem;
+    width: 5rem;
+    padding: 0 .4rem;
+    line-height: 1rem;
+    font-size: .363636rem;
+    color: $inputFontColor;
+    position: relative;
+    border-radius: 1.298701rem;
+    background-color: $inputColor;
+  }
+  // .input{
+  //   position: absolute;
+  //   left: .3rem;
+  //   height: .5rem;
+  //   width: 5rem;
+  //   border: none;
+
+  // }
+}
+.input{
+  
 }

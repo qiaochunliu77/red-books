@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import IconFont from 'components/common/svg';
-import { message } from 'antd';
+import { Toast } from 'antd-mobile';
 import top from 'images/home/top.png';
 import styles from './style.module.scss';
 
@@ -11,11 +11,10 @@ export default function HomeBoard (props: {tags: Array<string>, currentTab: numb
   //   this.mySwiper1.slideTo(index, 300, false);
   // }
   const navToCamera = () => {
-    message.info('此页面还在开发中哦，敬请期待～～');
-    // 
+    Toast.info('此页面还在开发中哦，敬请期待～～');
   };
   const navToSerach = () => {
-    message.info('此页面还在开发中哦，敬请期待～～');
+    Toast.info('此页面还在开发中哦，敬请期待～～');
   };
   return (
     <div className={styles.container} style={style && { position:'fixed',top:0 }}>
