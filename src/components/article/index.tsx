@@ -69,17 +69,23 @@ const CommentInput =(props) => {
 
   useEffect(() => {
     // console.log(ref.current.value,'000');
-  },[ref]);
+  },[]);
   const inutOnBlur = (e) => {
-    // setValue(e.currentTarget.value);
-    console.log(e.currentTarget.value,'999');
+    let val = e.currentTarget.value;
+    setValue(val);
+    console.log(val,'999');
   };
-
+  const handleSubmit = () => {
+    setValue('');
+    ref.current.value='';
+    ref.current.focus();
+    setShowInput(false);
+  };
   const Input =() => {
     return (
       <div className={styles.commentInput}>
-        1
-        <input type='text' className={styles.input} ref={ref} onChange={inutOnBlur} />
+        <input type='text' className={styles.input} ref={ref} placeholder='喜欢就给个评论支持一下～' onChange={inutOnBlur} />
+        <div className={styles.submit} onClick={handleSubmit}>发送</div>
       </div>
     );
   };
@@ -89,8 +95,16 @@ const CommentInput =(props) => {
         <IconFont type='iconbianji'  />
         说点什么...
       </div>
+      <div className={styles.list}>
+        <IconFont type='iconaixin' style={{ fontSize: '.75rem' }} />
+        <div>40</div>
+        <IconFont type='iconaixin' style={{ fontSize: '.75rem' }} />
+        <div>40</div>
+        <IconFont type='iconaixin' style={{ fontSize: '.75rem' }} />
+        <div>40</div>
+      </div>
+
       {
-        
         showInput && <Input />
       }
     </div>
